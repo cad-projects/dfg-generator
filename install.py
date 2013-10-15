@@ -20,7 +20,7 @@ def printError(errorMsg):
 build_dir = "_build_"
 
 script_pathname = os.path.dirname(sys.argv[0]) 
-cadlib_path = os.path.abspath(script_pathname + "/src")
+cadlib_path = os.path.abspath(script_pathname + "/lib")
 
 parser = argparse.ArgumentParser(description='Available options')
 parser.add_argument('-prefix', action="store", default='/opt/compiler', help='Installation directory')
