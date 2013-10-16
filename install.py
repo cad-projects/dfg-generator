@@ -58,6 +58,13 @@ if (results.compile_llvm):
       os.system("mv sources/compiler-rt-3.2.src sources/llvm-3.2.src/projects/compiler-rt")
       os.system("tar xvf sources/polly-3.2.src.tar.gz -C sources")
       os.system("mv sources/polly-3.2.src sources/llvm-3.2.src/tools/polly")
+      os.chdir("sources/llvm-3.2.src/tools/polly/utils")
+      os.system("./checkout_cloog.sh cloog")
+      os.chdir("cloog")
+      os.system("./configure --prefix=/usr")
+      os.system("make")
+      os.system("sudo make install")
+      os.chdir(current_path)
    llvm_src = os.path.abspath("sources/llvm-3.2.src")
    if os.path.isdir("build-llvm") == False:
       os.makedirs("build-llvm")
